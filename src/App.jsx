@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import Feedback from './Feedback';
-import Options from './Options';
-import Notification from './Notification';
+import Feedback from './components/Feedback.jsx';
+import Options from './components/Options.jsx';
+import Notification from './components/Notification.jsx';
+
 
 function App() {
     const [feedback, setFeedback] = useState({ good: 0, neutral: 0, bad: 0 });
