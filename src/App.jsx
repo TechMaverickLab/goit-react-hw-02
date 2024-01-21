@@ -3,7 +3,6 @@ import Feedback from './components/Feedback.jsx';
 import Options from './components/Options.jsx';
 import Notification from './components/Notification.jsx';
 
-
 function App() {
     const [feedback, setFeedback] = useState({ good: 0, neutral: 0, bad: 0 });
 
@@ -14,10 +13,16 @@ function App() {
     const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
     const positivePercentage = totalFeedback > 0 ? Math.round((feedback.good / totalFeedback) * 100) : 0;
 
+    const feedbackOptions = [
+        { name: "Good", type: "good" },
+        { name: "Neutral", type: "neutral" },
+        { name: "Bad", type: "bad" }
+    ];
+
     return (
         <div>
             <h1>Sip Happens Café</h1>
-            <Options onFeedback={handleFeedback} />
+            <Options onFeedback={handleFeedback} options={feedbackOptions} />
             {totalFeedback > 0 ? (
                 <Feedback feedback={feedback} total={totalFeedback} positivePercentage={positivePercentage} />
             ) : (
